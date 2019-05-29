@@ -1,0 +1,31 @@
+<view class='page'>
+  <view class='head'>
+    <view class='searchBar'>
+      <input type='text' placeholder='请在这里输入搜索内容' confirm-type='search' bindconfirm='searchData'></input>
+    </view>
+
+    <view class='selectBox'>
+      <!-- 第一栏选择框标题位置 -->
+      <view class='select' catchtap='selectCom'>
+        <text class='select_text' style='color:{{proShow?"#008bff":"#4A4A4A"}}'>{{proData[proindex]}}</text>
+      </view>
+      <!-- 第一栏选择框底部可选择部分 -->
+      <view class='option_box' style='height:{{proShow?(proData.length>3?210:proData.length*70):0}}rpx'>
+        <text class='option' style='color:{{index==proindex?"#008bff":"#4A4A4A"}}' wx:for='{{proData}}' wx:key='*this' data-proindex='{{index}}' catchtap='optionCom'>{{item}}</text>
+      </view>
+
+			<!-- 第二栏选择框标题位置 -->
+      <view class='select' catchtap='selectCla'>
+        <text class='select_text' style='color:{{claShow?"#008bff":"#4A4A4A"}}'>{{claData[claindex]}}</text>
+      </view>
+      <!-- 第二栏选择框底部可选择部分 -->
+      <view class='option_box' style='height:{{claShow?(claData.length>3?210:proData.length*70):0}}rpx'>
+        <text class='option' style='color:{{index==proindex?"#008bff":"#4A4A4A"}}' wx:for='{{claData}}' wx:key='*this' data-claindex='{{index}}' catchtap='optionCla'>{{item}}</text>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 下拉框遮罩层 -->
+  <view class='shadow' style='display:{{display}}' catchtouchmove='true'></view>
+</view>
