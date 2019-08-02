@@ -11,33 +11,34 @@ Page({
     proindex: 0,
     proData: ['全部专业', '计算机科学与技术', '网络工程', '信息管理', '应用数学'],
 
-    claList: [{
-      all: '全部班级'
-    }, {
-      one: '计科一班',
-      two: '计科二班',
-      three: '计科三班'
-    }, {
-      one: '网工一班',
-      two: '网工二班',
-      three: '网工三班'
-    }, {
-      one: '信管一班',
-      two: '信管二班',
-      three: '信管三班'
-    }, {
-      one: '数学一班',
-      two: '数学二班',
-      three: '数学三班'
-    }, ],
+    // claList: [{
+    //   all: '全部班级'
+    // }, {
+    //   one: '计科一班',
+    //   two: '计科二班',
+    //   three: '计科三班'
+    // }, {
+    //   one: '网工一班',
+    //   two: '网工二班',
+    //   three: '网工三班'
+    // }, {
+    //   one: '信管一班',
+    //   two: '信管二班',
+    //   three: '信管三班'
+    // }, {
+    //   one: '数学一班',
+    //   two: '数学二班',
+    //   three: '数学三班'
+    // }, ],
     claShow: false,
     claindex: 0,
-    claData: ['全部班级', '夏欢的班级', '关注的班级'],
+    claData: ['全部班级', '喜欢的班级', '关注的班级'],
   },
 
   // 点击下拉专业显示框
   selectCom() {
     var that = this;
+		console.log(that.data.proShow)
     if (that.data.proShow) {
       that.setData({
         display: 'none'
@@ -48,7 +49,8 @@ Page({
       })
     }
     that.setData({
-      proShow: !that.data.proShow
+      proShow: !that.data.proShow,
+			claShow: false
     })
   },
 
@@ -88,7 +90,8 @@ Page({
       })
     }
     that.setData({
-      claShow: !that.data.claShow
+      claShow: !that.data.claShow,
+			proShow: false
     })
   },
 
@@ -113,6 +116,15 @@ Page({
       }
     })
   },
+
+	//隐藏遮罩层
+	hiddenShadow:function(){
+		this.setData({
+			display:'none',
+			proShow:false,
+			claShow:false
+		})
+	},
   /**
    * 生命周期函数--监听页面加载
    */

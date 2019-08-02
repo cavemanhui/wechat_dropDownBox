@@ -1,4 +1,4 @@
-<view class='page'>
+<view catchtap='hiddenShadow'>
   <view class='head'>
     <view class='searchBar'>
       <input type='text' placeholder='请在这里输入搜索内容' confirm-type='search' bindconfirm='searchData'></input>
@@ -19,8 +19,8 @@
         <text class='select_text' style='color:{{claShow?"#008bff":"#4A4A4A"}}'>{{claData[claindex]}}</text>
       </view>
       <!-- 第二栏选择框底部可选择部分 -->
-      <view class='option_box' style='height:{{claShow?(claData.length>3?210:proData.length*70):0}}rpx'>
-        <text class='option' style='color:{{index==proindex?"#008bff":"#4A4A4A"}}' wx:for='{{claData}}' wx:key='*this' data-claindex='{{index}}' catchtap='optionCla'>{{item}}</text>
+      <view class='option_box' style='height:{{claShow?(claData.length>3?210:claData.length*70):0}}rpx'>
+        <text class='option' style='color:{{index==claindex?"#008bff":"#4A4A4A"}}' wx:for='{{claData}}' wx:key='*this' data-claindex='{{index}}' catchtap='optionCla'>{{item}}</text>
       </view>
     </view>
 
@@ -28,4 +28,4 @@
 
   <!-- 下拉框遮罩层 -->
   <view class='shadow' style='display:{{display}}' catchtouchmove='true'></view>
-</view>
+</view> 

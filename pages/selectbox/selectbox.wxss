@@ -1,8 +1,11 @@
-.page {
+page {
   background-color: #f8f8f8;
-  height: 100%;
   font-size: 32rpx;
   line-height: 1.6;
+}
+.scrollPage{
+	height: 100%;
+	overflow: hidden;
 }
 .searchBar{
   background: #fff;
