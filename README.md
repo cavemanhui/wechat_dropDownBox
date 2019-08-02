@@ -10,3 +10,20 @@
   + 2.4 在展现下拉框数据后面可以自己添加icon，因为我没有引字体库，所以就没做这个功能，icon根据下拉框是否展示来进行颜色控制---不打算做
   + **所有的简单判断我都是用三目运算来搞的，因为我很懒麽，但是在小程序的开发过程中，复杂的判断还是推荐用wx:if**
 3. 双列下拉框(有关联)---正在进行
+
+
+缺省功能：
+     在下拉框数据较多时候，上划会拉动整个页面，原因在与，整个页面没有禁止滚动条。
+  解决办法：对整体page页面 将 scroll-view 改为 view，并且设置样式 height:100%,overflower:hidden ，用参数来控制  参照代码
+    wxml:
+     <scroll-view calss='{{scrollShow:"scrollPage":""}}'>
+        页面代码
+     </scroll-view>
+    wxss:
+      .scrollPage{
+        height: 100%;
+        overflow: hidden;
+      }
+    js:
+      在所有显示下拉框的setData 里面添加scrollShow:true 
+        关闭下拉框的时候  要记得把 scrollShow:false  设置回来哦~
